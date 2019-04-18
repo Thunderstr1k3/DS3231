@@ -136,6 +136,13 @@ uint32_t DateTime::unixtime(void) const {
   return t;
 }
 
+uint32_t DateTime::secondstime(void) const {
+  uint32_t t;
+  uint16_t days = date2days(yOff, m, d);
+  t = time2long(days, hh, mm, ss);
+  return t;
+}
+
 // Slightly modified from JeeLabs / Ladyada
 // Get all date/time at once to avoid rollover (e.g., minute/second don't match)
 static uint8_t bcd2bin (uint8_t val) { return val - 6 * (val >> 4); }
